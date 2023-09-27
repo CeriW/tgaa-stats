@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+html {
+}
+
+.achievement-card[hidden-achievement='true'] * {
+  filter: blur(10px);
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-around;
+}
+
+.achievement-card {
+  background: #000;
+  color: #fff;
+  flex-basis: 200px;
+  padding: 10px;
+  border-radius: 7px;
+}

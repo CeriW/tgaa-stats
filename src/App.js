@@ -48,10 +48,6 @@ const AchievementList = () => {
 
   return (
     <ul>
-      {/* {dataList.game.availableGameStats.achievements.forEach((item, index) => {
-        return <AchievementCard key={index} achievement={item} />;
-      })} */}
-
       {dataList.map((item, index) => (
         <AchievementCard key={index} achievement={item} />
       ))}
@@ -64,11 +60,20 @@ const AchievementCard = ({ achievement }) => {
 
   return (
     <div className="achievement-card" hidden-achievement={isHidden}>
-      <img src={achievement.icon} width="100" alt="" />
-      <h3>{achievement.displayName}</h3>
-      <div>{achievement.description}</div>
-      <div className="percentage">{achievement.percent}%</div>
-      {/* {JSON.stringify(achievement)} */}
+      <div
+        className="pie"
+        style={{
+          backgroundImage: `conic-gradient(var(--gold) 0%, var(--gold) ${achievement.percent}%, var(--blue) ${achievement.percent}%, var(--blue) 100%)`,
+        }}
+      >
+        {Math.round(achievement.percent)}
+        <div>%</div>
+      </div>
+      <img src={achievement.icon} width="75" alt="" />
+      <div>
+        <h3>{achievement.displayName}</h3>
+        <div>{achievement.description}</div>
+      </div>
     </div>
   );
 };
@@ -76,17 +81,11 @@ const AchievementCard = ({ achievement }) => {
 function App() {
   return (
     <div className="App">
-      <AchievementList />
-
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
+      <header>
+        <h1>THE GREAT ACE ATTORNEY CHRONICLES</h1>
+        <h2>player achievements</h2>
       </header>
+      <AchievementList />
     </div>
   );
 }

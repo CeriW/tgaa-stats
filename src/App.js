@@ -7,8 +7,6 @@ ReactGA.initialize('G-2962N8TTQJ');
 const dataList = await getFormattedAchievements();
 
 const AchievementList = ({ showHiddenAchievements }) => {
-  console.log(showHiddenAchievements);
-
   return (
     <ul show-hidden-achievements={showHiddenAchievements.toString()}>
       {dataList.map((item, index) => (
@@ -49,7 +47,6 @@ function App() {
   const [showHiddenAchievements, toggleHiddenAchievements] = useState(false);
 
   const toggleHidden = () => {
-    console.log(showHiddenAchievements);
     toggleHiddenAchievements(!showHiddenAchievements);
   };
 

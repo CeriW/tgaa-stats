@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 const steamGameID = 1158850;
 const apiKey = '9C744478D34930318FB5C67B3613E409';
@@ -31,23 +31,20 @@ const formatAchievements = async () => {
   const info = await fetchData(apiAddresses.achievementNames);
   const percentages = await fetchData(apiAddresses.achievementPercentages);
 
-  console.log(percentages);
-
   const formattedData = info.game.availableGameStats.achievements.map((item, index) => {
     return { ...item, percent: percentages.achievementpercentages.achievements[index].percent };
   });
 
-  console.log(formattedData);
   return formattedData;
 };
 
 const dataList = await formatAchievements();
 
-const AchievementList = () => {
-  console.log(dataList);
+const AchievementList = ({ showHiddenAchievements }) => {
+  console.log(showHiddenAchievements);
 
   return (
-    <ul>
+    <ul show-hidden-achievements={showHiddenAchievements.toString()}>
       {dataList.map((item, index) => (
         <AchievementCard key={index} achievement={item} />
       ))}
@@ -79,13 +76,24 @@ const AchievementCard = ({ achievement }) => {
 };
 
 function App() {
+  const [showHiddenAchievements, toggleHiddenAchievements] = useState(false);
+
+  const toggleHidden = () => {
+    console.log(showHiddenAchievements);
+    toggleHiddenAchievements(!showHiddenAchievements);
+  };
+
   return (
     <div className="App">
       <header>
         <h1>THE GREAT ACE ATTORNEY CHRONICLES</h1>
         <h2>player achievements</h2>
       </header>
-      <AchievementList />
+      <div className="toggle-menu">
+        <label for="toggle-hidden">Show hidden achievements:</label>
+        <input id="toggle-hidden" type="checkbox" onClick={toggleHidden}></input>
+      </div>
+      <AchievementList showHiddenAchievements={showHiddenAchievements} />
     </div>
   );
 }

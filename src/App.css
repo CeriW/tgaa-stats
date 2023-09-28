@@ -13,13 +13,18 @@ body {
   text-align: center;
 }
 
-.achievement-card[hidden-achievement='true'] > :not(.pie) {
+ul .achievement-card[hidden-achievement='true'] > :not(.pie) {
+  filter: blur(0);
+  transition: 0.2s;
+}
+
+ul[show-hidden-achievements='false'] .achievement-card[hidden-achievement='true'] > :not(.pie) {
   filter: blur(10px);
 }
 
 header {
-  margin-bottom: 50px;
   font-size: 1.5em;
+  margin-bottom: 20px;
 }
 
 h1,
@@ -34,12 +39,35 @@ h3 {
   color: var(--gold);
 }
 
+.toggle-menu {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: initial;
+  position: sticky;
+  top: -1px;
+  z-index: 2;
+  background: var(--blue);
+}
+
+.toggle-menu * {
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+input[type='checkbox'] {
+  width: 25px;
+  height: 25px;
+  accent-color: var(--gold);
+}
+
 ul {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: space-evenly;
-  padding: 0;
+  padding: 50px 0 0;
 }
 
 .achievement-card {

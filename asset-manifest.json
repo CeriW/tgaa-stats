@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/tgaa-stats/static/css/main.299212a9.css",
-    "main.js": "/tgaa-stats/static/js/main.02ad34d0.js",
+    "main.js": "/tgaa-stats/static/js/main.1982e52f.js",
     "static/js/787.5ac645e6.chunk.js": "/tgaa-stats/static/js/787.5ac645e6.chunk.js",
     "index.html": "/tgaa-stats/index.html",
     "main.299212a9.css.map": "/tgaa-stats/static/css/main.299212a9.css.map",
-    "main.02ad34d0.js.map": "/tgaa-stats/static/js/main.02ad34d0.js.map",
+    "main.1982e52f.js.map": "/tgaa-stats/static/js/main.1982e52f.js.map",
     "787.5ac645e6.chunk.js.map": "/tgaa-stats/static/js/787.5ac645e6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.299212a9.css",
-    "static/js/main.02ad34d0.js"
+    "static/js/main.1982e52f.js"
   ]
 }

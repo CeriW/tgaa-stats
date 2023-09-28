@@ -1,8 +1,8 @@
 const steamGameID = 1158850;
 
 const apiAddresses = {
-  achievementNames: `https://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v0002/?key=5D11ACA4E02BD8C39DE0125B15906AA2&appid=${steamGameID}&l=english&format=json`,
-  achievementPercentages: `https://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=${steamGameID}&format=json`,
+  achievementNames: `https://corsproxy.io/?https://api.steampowered.com/ISteamUserStats/GetSchemaForGame/v0002/?key=5D11ACA4E02BD8C39DE0125B15906AA2&appid=${steamGameID}&l=english&format=json`,
+  achievementPercentages: `https://corsproxy.io/?https://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=${steamGameID}&format=json`,
 };
 
 async function fetchData(apiUrl) {

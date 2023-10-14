@@ -27,7 +27,7 @@ const AchievementCard = ({ achievement }) => {
           backgroundImage: `conic-gradient(var(--gold) 0%, var(--gold) ${achievement.percent}%, var(--blue) ${achievement.percent}%, var(--blue) 100%)`,
         }}
       >
-        {Math.round(achievement.percent)}
+        {achievement.percent.toFixed(1)}
         <div>%</div>
       </div>
       <img src={achievement.icon} width="75" alt="" />

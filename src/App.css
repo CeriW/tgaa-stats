@@ -1,6 +1,5 @@
 :root {
   --blue: #0d1725;
-  /* --gold: #9e9150; */
   --gold: #c7ba7a;
   --brown: #4b4428;
 }
@@ -13,13 +12,28 @@ body {
   text-align: center;
 }
 
-ul .achievement-card[hidden-achievement='true'] > :not(.pie) {
-  filter: blur(0);
-  transition: 0.2s;
+ul .achievement-card[show-achievement='false'] {
+  cursor: pointer;
 }
 
-ul[show-hidden-achievements='false'] .achievement-card[hidden-achievement='true'] > :not(.pie) {
-  filter: blur(10px);
+ul .achievement-card[show-achievement='false'] > :not(.pie) {
+  filter: blur(15px);
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+ul .achievement-card[show-achievement='false']:before {
+  content: 'Click to reveal hidden achievement';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  pointer-events: none;
 }
 
 header {

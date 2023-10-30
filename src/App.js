@@ -6,9 +6,9 @@ ReactGA.initialize('G-2962N8TTQJ');
 
 const dataList = await getFormattedAchievements();
 
-const AchievementList = ({ showHiddenAchievements }) => {
+const AchievementList = () => {
   return (
-    <ul show-hidden-achievements={showHiddenAchievements.toString()}>
+    <ul>
       {dataList.map((item, index) => (
         <AchievementCard key={index} achievement={item} />
       ))}
@@ -17,10 +17,15 @@ const AchievementList = ({ showHiddenAchievements }) => {
 };
 
 const AchievementCard = ({ achievement }) => {
-  const isHidden = (achievement.hidden > 0).toString();
+  const isHidden = Boolean(achievement.hidden <= 0);
+  const [showAchievement, toggleAchievement] = useState(isHidden);
 
   return (
-    <div className="achievement-card" hidden-achievement={isHidden}>
+    <div
+      className="achievement-card"
+      show-achievement={showAchievement.toString()}
+      onClick={() => toggleAchievement(true)}
+    >
       <div
         className="pie"
         style={{
@@ -44,23 +49,13 @@ function App() {
     ReactGA.pageview(window.location.pathname);
   }, []);
 
-  const [showHiddenAchievements, toggleHiddenAchievements] = useState(false);
-
-  const toggleHidden = () => {
-    toggleHiddenAchievements(!showHiddenAchievements);
-  };
-
   return (
     <div className="App">
       <header>
         <h1>THE GREAT ACE ATTORNEY CHRONICLES</h1>
         <h2>player achievements</h2>
       </header>
-      <div className="toggle-menu">
-        <label for="toggle-hidden">Show hidden achievements:</label>
-        <input id="toggle-hidden" type="checkbox" onClick={toggleHidden}></input>
-      </div>
-      <AchievementList showHiddenAchievements={showHiddenAchievements} />
+      <AchievementList />
     </div>
   );
 }

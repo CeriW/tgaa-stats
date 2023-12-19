@@ -15,7 +15,7 @@ The aim was a one-page website that uses the [Steam Web API](https://steamcommun
 
 ### Live preview
 
-You can see the site live at [tgaa-stats.cherrycodes.net](https://tgaa-stats.cherrycodes.net/)
+You can see the site live at [tgaa-stats.netlify.app](https://tgaa-stats.netlify.app/)
 
 ### Local development
 
